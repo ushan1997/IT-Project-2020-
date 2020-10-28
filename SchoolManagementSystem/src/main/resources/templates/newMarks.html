@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New Marks</title>
+<div th:replace="header::myheader"></div>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script type="text/javascript">
+	 
+		$(function() 
+		{
+			$("#exam_id").autocomplete({
+				source: "ExamIdAutoComplete",
+				minLength: 1				
+				
+			});
+			
+			$("#student_id").autocomplete({
+				source: "StudentIdAutoComplete",
+				minLength: 1				
+						
+			});
+		});
+		
+		
+	</script> 
+	
+	<style>
+body {
+    background-image: url("https://www.cahec.com/wp-content/uploads/2016/08/Silver-Blur-Background-Wallpaper.jpg");
+}
+
+</style>
+    
+    
+  </head>
+  <body>
+    
+
+
+	<div class="container">
+	<br><br><br><br>
+		<h1>Exam Management System</h1><br><br>
+		<hr>
+		<h2>Add Student's Marks</h2><br><br>
+		
+	<!--  	<h3>If You don't Know the Exam Id Search Here</h3>
+		
+		<form action="#" th:action="@{/findExamId}" Method="GET"class="form-inline">
+		<div class="form-group col-md-6">
+			
+			<input type="text" class="form-control" id="inputCity" name="keyword" placeholder="Search">
+			<button type="submit" class="btn btn-primary">Find</button>
+			<input type="text" class="form-control" th:text="${#numbers.formatInteger(num,5)}"placeholder="Search">
+			
+			
+		</div>
+	</form>
+	<table border="1" class="table table-striped table-responsive-md">
+	<tbody>
+				<tr th:each="exam : ${ExamId}">
+				<td th:text="${exam.ExamId}"></td>  
+				</tr>
+				</tbody>
+				</table>
+	
+<ul th:each="message : ${ExamId}">
+			<li th:text="">keyword</li>
+			<input type="text" class="form-control" th:field="*{ExamId}" placeholder="Search">
+		</ul>-->
+		
+		<a th:href="@{/listOfAllMarks}" class="btn btn-primary">View All Marks</a>
+			<br><br>
+		<form action="#" th:action="@{/saveMarks}" th:object="${listmarks}" Method="POST">
+<br><br>
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label" for="exam_id">Exam Id</label>
+		<div class="col-sm-10">
+		 <input type="text"   th:field = "*{exam_id}" id="exam_id" placeholder="Exam Id"  class="form-control"  required>
+		</div>
+		</div>
+	
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label" for="student_id">Student Id</label>
+		<div class="col-sm-10">
+		 <input type="text"    th:field = "*{student_id}" id="student_id"  placeholder="Student Id"   class="form-control"  required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Marks</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{marks}"	 placeholder="Marks"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+
+			
+		<button type="submit" class="btn btn-primary" >Save Exam Marks</button>
+	</form>
+
+</div>
+<br><br><br><br>
+<div th:insert="footer ::foot"></div>
+  </body>
+</html>

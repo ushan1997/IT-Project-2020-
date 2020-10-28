@@ -1,0 +1,36 @@
+
+body{
+
+
+
+}
+
+.header{
+	text-align: center;
+}		
+.para{
+	
+	text-align: center;
+}	
+
+form {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	 background-color:#808080;/*grey*/
+	margin-left: 200px;
+	
+	width:70%;
+	float:center;
+	padding:32px;
+	border: 4px solid #ff9400;
+}
+
+table {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	 background-color:#808080;/*grey*/
+	margin-left: 0px;
+	
+	width:70%;
+	float:center;
+	padding:32px;
+	border: 4px solid #ff9400;
+}

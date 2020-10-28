@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Extra Curricular Activities</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<div th:replace="header::myheader"></div>
+
+</head>
+<body>
+
+<div  class="container  "> 
+ <br><br>
+<h1>Assign new students to Activities </h1>
+ <br><br>
+<form action="#" th:action="@{/saveExtraDetails}" th:object="${extraCurricular}"  method="POST">
+
+
+<!-- Extra id <input type="text" th:field= "*{extracurricular_id}"  class="form-control mb-4 col-4" >
+ -->
+
+ <br><br>
+	
+	      Activity Name
+	       <br><br>
+		    <select class="form-control mb-4 col-4" th:field = "*{activity_name}"   required>
+		   <option value= Basketball>BasketBall</option>
+			<option  value= cricket>Cricket</option>
+			<option value=choir>Choir</option>
+			<option value=band>Band</option>	
+		    </select>
+		
+
+<!--  <select  class="form-control mb-4 col-4" value= "*{act_name}" label="*{act_name}">
+
+<option value= Basketball>BasketBall</option>
+<option  value= cricket>Cricket</option>
+<option value=choir>Choir</option>
+<option value=band>Band</option>
+
+</select> -->
+
+Student Id  <input type="text" th:field= "*{student_id}" placeholder="student id" class="form-control mb-4 col-4" required>
+                                                          
+ Student Role <input type="text" th:field= "*{student_role}"  placeholder="student role" class="form-control mb-4 col-4" required>
+
+Points <input type="text" th:field= "*{points}"  placeholder="Points" class="form-control mb-4 col-4" required>
+
+
+<button  type="submit"   class="btn btn-info col-2">Assign Student</button>
+</form>
+</div>
+ <br><br>
+<div th:insert="footer ::foot"></div>
+</body>
+</html>

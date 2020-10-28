@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Marks</title>
+<div th:replace="header::myheader"></div>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script type="text/javascript">
+	 
+		$(function() 
+		{
+			$("#exam_id").autocomplete({
+				source: "ExamIdAutoComplete",
+				minLength: 1				
+				
+			});
+			
+			$("#student_id").autocomplete({
+				source: "StudentIdAutoComplete",
+				minLength: 1				
+						
+			});
+		});
+		
+		
+	</script> 
+
+<style>
+body {
+    background-image: url("https://www.cahec.com/wp-content/uploads/2016/08/Silver-Blur-Background-Wallpaper.jpg");
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div class="container">
+<br><br><br><br>
+	<h1>Update Exam Marks</h1>
+	
+	<hr>
+	<form action="#" th:action="@{/saveMarks}" th:object="${updateMarks}" method="POST">
+	<br><br><br><br>
+		<tr>
+		<td><input type="hidden" th:field= "*{exam_marks_id}"/></td>
+		</tr>
+		
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Id</label>
+		<div class="col-sm-10">
+		 <input type="text"   th:field = "*{exam_id}" id="exam_id"  placeholder="Exam Id"  class="form-control"  required>
+		</div>
+		</div>
+	
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Student Id</label>
+		<div class="col-sm-10">
+		 <input type="text"    th:field = "*{student_id}" id="student_id"  placeholder="Student Id"   class="form-control" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Marks</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{marks}"	 placeholder="Marks"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+	
+			
+		<button type="submit" class="btn btn-primary" >Save Exam Marks</button>
+	</form>
+
+</div>
+<br><br><br><br>
+<div th:insert="footer ::foot"></div>
+  </body>
+</html>

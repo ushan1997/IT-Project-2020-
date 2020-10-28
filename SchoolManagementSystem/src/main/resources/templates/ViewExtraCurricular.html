@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Students</title>
+
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<div th:replace="header::myheader"></div>
+</head>
+<body>
+
+	<div class="container my-2">
+
+		<h1>Student list Of Extra Curricular</h1><br>
+		
+		
+		
+		 
+
+		<a th:href="@{/newExtraDetailsForm}" class="btn btn-primary btn-sm mb-3">Assign
+			student</a>  <br><br>
+			
+			
+		<form th:action="@{/listofExtra}" method="get" class="form-inline">
+			<div class="form-group col-md-8">
+			<!--  -->
+			<input type="text" class="form-control" id="inputCity"
+				name="keyword" placeholder="Search">
+			<button type="submit" class="btn btn-primary">Search</button><br><br><br><br>
+			</div>
+		</form> 
+			
+
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+
+				<tr>
+					<th>Activity id</th>
+					<th>Activity Name</th>
+					<th>Student Id</th>
+					<th>Student Role</th>
+					<th>Ponits</th>
+					<th>Actions</th>
+
+
+				</tr>
+
+
+			</thead>
+			<tbody>
+				<tr th:each="extraCurricular : ${ListOfStdents}">
+
+					<td th:text="${extraCurricular.extracurricular_id}"></td>
+					<td th:text="${extraCurricular.activity_name}"></td>
+					<td th:text="${extraCurricular.student_id}"></td>
+					<td th:text="${extraCurricular.student_role}"></td>
+					<td th:text="${extraCurricular.points}"></td>
+
+					<td>
+					<a th:href="@{/showFormForUpdate/{extracurricular_id}(extracurricular_id=${extraCurricular.extracurricular_id})}"
+					class="btn btn-primary">Update</a> 
+					
+					<a th:href="@{/deleteStudent/{extracurricular_id}(extracurricular_id=${extraCurricular.extracurricular_id})}"
+						class="btn btn-danger">Delete</a></td>
+
+
+				</tr>
+			</tbody>
+
+
+
+		</table>
+
+<a th:href="@{/reportGenerationOfExtra}" class="btn btn-primary btn-sm mb-3">Generate 
+			Report</a>  <br><br>
+	</div>
+	<div th:insert="footer ::foot"></div>
+</body>
+</html>

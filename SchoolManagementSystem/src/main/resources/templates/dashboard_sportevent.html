@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<div th:replace="header::myheader"></div>
+<title>Sport Event Dashboard</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	
+<style>
+/* body {
+    background-image: url("https://cdn.slidemodel.com/wp-content/uploads/8202-01-education-computer-keyword-picture-1.jpg");
+    height: 200px;
+	  width: 100%;
+}
+
+	.nav-link{
+	color: #333;
+	}
+	
+	
+	.header{
+	  height: 200px;
+	  width: 100%;
+	}
+	.dropdown{
+ 	top:100px; 
+   right:-1300px; 
+	
+	} */
+</style>
+
+</head>
+<body>
+
+
+
+
+
+	<div align = "center" class="container my-2">
+	 <br> <br> <br> <br>
+	<h1>Event Dashboard</h1>
+	
+	<br><br>
+	
+	<div class="container">
+	
+	<h3>Prize giving</h3>
+	<br>
+	<a th:href = "@{/showPricewinnersForm}" class="btn btn-primary btn-lg mb-3"> View & Add Price Winners List </a>
+	<br>
+	<br>
+	<h3>Sport Events</h3>
+	<br>
+	<a th:href = "@{/sportevent}" class="btn btn-primary btn-lg mb-3"> View & Add Sport Events </a>
+	
+	</div>
+	
+	</div>
+	
+	
+	<div th:fragment="foot">
+  
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+  
+  
+ </div>
+ <br> <br> <br> <br>
+<div th:insert="footer ::foot"></div>
+
+</body>
+</html>

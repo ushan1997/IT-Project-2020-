@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container my-2">
+
+
+
+<a th:href="@{/viewDetailsForm}" class="btn btn-info col-6">Assign New Students To Activity
+			</a>  <br><br>
+
+
+<a th:href="@{/saveDetails}" class="btn btn-info col-6"> View All Students Who Participate in activities</a>
+
+
+</div>
+<div th:insert="footer ::foot"></div>
+</body>
+</html>

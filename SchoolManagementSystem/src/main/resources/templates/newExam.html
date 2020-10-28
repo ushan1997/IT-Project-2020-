@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New Exam</title>
+<div th:replace="header::myheader"></div>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script type="text/javascript">
+		$(function() 
+		{
+			$("#teacher_name").autocomplete({
+				source: "teacherNameAutoComplete",
+				minLength: 1				
+				
+			});
+		});
+	</script> 
+	
+<style>
+body {
+    background-image: url("https://www.cahec.com/wp-content/uploads/2016/08/Silver-Blur-Background-Wallpaper.jpg");
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+<br><br><br><br>
+	<h1>Exam Management System</h1>
+	<hr>
+	<form action="#" th:action="@{/saveExams}" th:object="${exam}" method="POST">
+	
+	
+
+	<!-- 	<tr>
+		<td>Exam Name</td>
+		<td><input type="text" th:field = "*{exam_name}" 	placeholder="Exam Name" class="form-control mb-4 col-4" required></td>
+		</tr> -->
+		
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{exam_name}" 	placeholder="Ex: Grade 01 Maths" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+					
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Year</label>
+		<div class="col-sm-10">
+		
+		<div class="form-group blu-margin">
+		    <select class="form-control" th:field = "*{year}"  id="dropOperator" required>
+		    <option value="2020">2020</option>
+		    <option value="2019">2019</option>
+		    <option value="2018">2018</option>
+		    <option value="2017">2017</option>
+		    <option value="2016">2016</option>
+		    <option value="2015">2015</option>
+		    </select>
+		</div>
+		
+		
+		<!--  <input type="text" th:field = "*{year}"	 	placeholder="Year" class="form-control" id="inputPassword" required> -->
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Term</label>
+		<div class="col-sm-10">
+		<!--  <input type="text" th:field = "*{term}"	 	placeholder="Term" class="form-control" id="inputPassword" required> -->
+		 
+		 	<div class="form-group blu-margin">
+		    <select class="form-control" th:field = "*{term}"  id="dropOperator" required>
+		    <option value="1st Term">1st Term</option>
+		    <option value="2st Term">2st Term</option>
+		    <option value="3st Term">3st Term</option>
+
+		    </select>
+		</div>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Class</label>
+		<div class="col-sm-10">
+		 <!-- <input type="text" th:field = "*{exam_class}" 	placeholder="Exam Class" class="form-control" id="inputPassword" required> -->
+		 
+		 <div class="form-group blu-margin">
+		    <select class="form-control" th:field = "*{exam_class}"  id="dropOperator" required>
+		    <option value="10">10</option>
+		    <option value="9">9</option>
+		    <option value="8">8</option>
+		    <option value="7">7</option>
+		    <option value="6">6</option>
+		    <option value="5">5</option>
+		    <option value="4">4</option>
+		    <option value="3">3</option>
+		    <option value="2">2</option>
+		    <option value="1">1</option>
+
+		    </select>
+		</div>
+		</div>
+		</div>
+		
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Subject</label>
+		<div class="col-sm-10">
+		<!--  <input type="text" th:field = "*{subject}"	    placeholder="Subject"  class="form-control" id="inputPassword" required> -->
+		 
+		  <div class="form-group blu-margin">
+		    <select class="form-control" th:field = "*{subject}"	 id="dropOperator" required>
+		     <option value="Sinhala">Sinhala</option>
+		    <option value="Tamil">Tamil</option>
+		    <option value="English">English</option>
+		    <option value="History">History</option>
+		    <option value="Commerce">Commerce</option>
+		    <option value="Arts">Arts</option>
+		    <option value="Geography">Geography</option>
+		    <option value="Health & biology Science">Health & biology Science</option>
+		    <option value="Sinhala">Sinhala</option>
+		    <option value="Science">Science</option>
+		    <option value="Mathematics">Mathematics</option>
+
+		    </select>
+		</div>
+		
+		</div>
+		</div>
+		
+		
+		
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label" for="teacher_name" >Teacher Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{teacher_name}"  id="teacher_name"  placeholder="Teacher Name"  class="form-control"  required>
+		</div>
+		</div>
+	
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Venue</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{exam_venue}"   placeholder="Exam Venue"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Deadline</label>
+		<div class="col-sm-10">
+		 <input type="date" th:field = "*{deadline}"	 placeholder="Deadline"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+	
+			
+		<button type="submit" class="btn btn-primary" >Save Exam</button>
+	</form>
+
+<!--  <form th:action="@{/convertNameToId}" method="get" class="form-inline">
+		<div class="form-group col-md-6">
+			
+			<input type="text" class="form-control" id="inputCity"
+				name="name" placeholder="Search">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	</form>-->	
+	<br><br><br><br>
+</div>
+<div th:insert="footer ::foot"></div>
+</body>
+</html>

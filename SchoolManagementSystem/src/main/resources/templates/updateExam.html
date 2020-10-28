@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<div th:replace="header::myheader"></div>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<title>Update Exams</title>
+<style>
+body {
+    background-image: url("https://www.cahec.com/wp-content/uploads/2016/08/Silver-Blur-Background-Wallpaper.jpg");
+}
+
+</style>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+
+<div class="container">
+
+	<h1>Update Exam Details</h1>
+	
+	<hr>
+	<form action="#" th:action="@{/saveExams}" th:object="${exam}" method="POST">
+	
+		<tr>
+		<td><input type="hidden" th:field= "*{exam_id}"/></td>
+		</tr>
+		
+		
+	<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{exam_name}" 	placeholder="Exam Name" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+					
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Year</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{year}"	 	placeholder="Year" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Term</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{term}"	 	placeholder="Term" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Class</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{exam_class}" 	placeholder="Exam Class" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Subject</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{subject}"	    placeholder="Subject"  class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Teacher Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{teacher_name}"   placeholder="Teacher Name"  class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+	
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Exam Venue</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{exam_venue}"   placeholder="Exam Venue"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+		<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Deadline</label>
+		<div class="col-sm-10">
+		 <input type="date" th:field = "*{deadline}"	 placeholder="Deadline"   class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+	
+				
+			
+			
+		<button type="submit" class="btn btn-primary">Update Exam</button>
+	</form>
+<br><br><br><br>
+</div>
+<div th:insert="footer ::foot"></div>
+</body>
+</html>

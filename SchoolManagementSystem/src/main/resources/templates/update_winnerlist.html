@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Event Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Event Management System</h1>
+		<hr>
+		<h2>Update winner List</h2>
+
+		<form action="#" th:action="@{/saveWinnerList}" th:object="${winnerlist}" method="POST">
+		
+		<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+		
+			<p><strong>Grade</strong> </p><input type="text" th:field="*{grade}" class="form-control mb-4 col-4">
+				
+			<p><strong>Subject</strong> <input type="text" th:field="*{subject}" class="form-control mb-4 col-4">
+				
+			<p><strong>Student Name</strong> <input type="text" th:field="*{stdName}" class="form-control mb-4 col-4">
+			
+			<p><strong>Marks</strong> <input type="text" th:field="*{marks}" class="form-control mb-4 col-4">
+				
+			<button type="submit" class="btn btn-info col-2"> Update Winner List </button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/showWinnersForm}"> Back to WInner List</a>
+	</div>
+	<div th:insert="footer ::foot"></div>
+</body>
+</html>	

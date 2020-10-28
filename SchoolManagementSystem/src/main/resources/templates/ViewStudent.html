@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Student Profile</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<div th:replace="header::myheader"></div>
+</head>
+<body>
+
+
+	
+
+
+<center><h1>Student List</h1></center>
+
+<div class="table-responsive text-nowrap">
+
+<a th:href = "@{/showNewStudentForm}" class="btn btn-primary btn-sm mb-3"> Add student </a>
+
+
+
+
+<table border="1" class = "table" >
+<thead>
+<tr>
+<th> Student Name </th>
+<th> Name with Initials </th>
+<th> Date of Admission </th>
+<th> Class of Admission </th>
+<th> Date of birth </th>
+<th> Gender </th>
+<th> Religion </th>
+<th> Race </th>
+<th> Address </th>
+<th> Telephone </th>
+<th> Father's name </th>
+<th> Father's Contact number </th>
+<th> Father's email </th>
+<th> Father's occupation </th>
+<th> Father's office address </th>
+<th> Mother's name </th>
+<th> Mother's Contact number </th>
+<th> Mother's email </th>
+<th> Mother's occupation </th>
+<th> Mother's office address </th>
+<th> Gurdian's name </th>
+<th> Gurdian's Contact number </th>
+<th> Gurdian's email </th>
+<th> Gurdian's occupation </th>
+<th> Gurdian's office address </th>
+<th>Update</th>
+<th>Delete</th>
+<th> PROFILE </th>
+</tr>
+</thead>
+<tbody>
+
+<tr th:each = "student : ${listStudents}">
+
+	<td th:text = "${student.name}"></td>
+	<td th:text = "${student.name_with_initials}"></td>
+	<td th:text = "${student.date_of_admission}"></td>
+	<td th:text = "${student.class_of_admission}"></td>	
+	<td th:text = "${student.date_of_birth}"></td>	
+	<td th:text = "${student.gender}"></td>
+	<td th:text = "${student.religion}"></td>
+	<td th:text = "${student.race}"></td>
+	<td th:text = "${student.address}"></td>
+	<td th:text = "${student.contact_number}"></td>
+	<td th:text = "${student.father_name}"></td>
+	<td th:text = "${student.father_contact_number}"></td>
+    <td th:text = "${student.father_email}"></td>
+ 	<td th:text = "${student.father_job}"></td>
+ 	<td th:text = "${student.father_office_address}"></td>
+	<td th:text = "${student.mother_name}"></td>
+	<td th:text = "${student.mother_contact_number}"></td>
+    <td th:text = "${student.mother_email}"></td>
+ 	<td th:text = "${student.mother_job}"></td>
+ 	<td th:text = "${student.mother_office_address}"></td>	
+ 	<td th:text = "${student.gurdian_name}"></td>
+	<td th:text = "${student.gurdian_contact_number}"></td>
+    <td th:text = "${student.gurdian_email}"></td>
+ 	<td th:text = "${student.gurdian_job}"></td>
+ 	<td th:text = "${student.gurdian_office_address}"></td>
+	
+<td>
+     <a th:href="@{/showStudentFormForUpdate/{student_id}(student_id=${student.student_id})}" class="btn btn-primary">Update</a>
+     </td>
+     <td>
+     <a th:href="@{/deleteStudent/{student_id}(student_id=${student.student_id})}" class="btn btn-danger">Delete</a>
+</td>
+<td>
+	 <a th:href="@{/ViewStudentProfile/{student_id}(student_id=${student.student_id})}" class="btn btn-primary">PROFILE</a>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<center><a th:href="@{/exportStudentPdf}" class="btn btn-primary">Generate Report</a></center>
+
+<div th:insert="footer ::foot"></div>
+</body>
+</html>

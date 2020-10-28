@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<div th:replace="header::myheader"></div>
+</head>
+<body>
+ <div class="container">
+ <h1> Student Management </h1>
+ <hr> 
+ <h2> Enter New student's personal details </h2>
+ 
+ <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
+ 
+ 
+ <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Student Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{name}" 	placeholder="Student name" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+ 
+ <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Name with Initials</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{name_with_initials}" 	placeholder="" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Date of Admission</label>
+		<div class="col-sm-10">
+		 <input type="date"  th:field = "*{date_of_admission}" name="day"	 id="inputPassword" class="form-control"  required>
+		</div>
+		</div>
+ 
+ <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Class of Admission</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{class_of_admission}" 	placeholder="1A" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+ 
+ <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Date of birth</label>
+		<div class="col-sm-10">
+		 <input type="date"  th:field = "*{date_of_birth}" 	 class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+ 
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gender</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{gender}" 	 class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+ 
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Religion</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{religion}" 	 class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+		
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Race</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{race}" 	 class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Address</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{address}" 	placeholder="" class="form-control" id="inputPassword" required>
+		</div>
+		</div>	
+		
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Telephone</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{contact_number}" 	name="mobile"  pattern="[0-9]{10}" placeholder="1234567890" class="form-control" id="inputPassword" required>
+		</div>
+		</div>
+  
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Father's Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{father_name}" 	placeholder="father name" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+		
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Father's Contact number</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{father_contact_number}" 	name="mobile"  pattern="[0-9]{10}" placeholder="1234567890" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+	
+    <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Father's email</label>
+		<div class="col-sm-10">
+		 <input type="email" th:field = "*{father_email}" 	name="email" placeholder="abc@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" class="form-control" id="inputPassword" >
+		</div>
+		</div>		
+		
+	 <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Father's occupation</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{father_job}" 	 class="form-control" id="inputPassword" >
+		</div>
+		</div>
+		
+	<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Father's office address </label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{father_office_address}" 	 class="form-control" id="inputPassword" >
+		</div>
+		</div>
+		
+	<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Mother's Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{mother_name}" 	placeholder="mother name" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+		
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Mother's Contact number</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{mother_contact_number}" 	name="mobile"  pattern="[0-9]{10}" placeholder="1234567890" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+	
+    <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Mother's email</label>
+		<div class="col-sm-10">
+		 <input type="email" th:field = "*{mother_email}" 	name="email" placeholder="abc@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" class="form-control" id="inputPassword" >
+		</div>
+		</div>		
+		
+	 <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Mother's occupation</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{mother_job}" 	 class="form-control" id="inputPassword" >
+		</div>
+		</div>
+		
+	<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Mother's office address </label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{mother_office_address}" 	 class="form-control" id="inputPassword" >
+		</div>
+		</div>
+		
+	  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gurdian's Name</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{gurdian_name}" 	placeholder="gurdian name" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+		
+  <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gurdian's Contact number</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{gurdian_contact_number}" 	name="mobile"  pattern="[0-9]{10}" placeholder="1234567890" class="form-control" id="inputPassword" >
+		</div>
+		</div>	
+	
+    <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gurdian's email</label>
+		<div class="col-sm-10">
+		 <input type="email" th:field = "*{gurdian_email}" 	name="email" placeholder="abc@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" class="form-control" id="inputPassword" >
+		</div>
+		</div>		
+		
+	 <div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gurdian's occupation</label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{gurdian_job}" 	 class="form-control" id="inputPassword" >
+		</div>
+		</div>
+		
+	<div class="form-group row">
+	    <label  class="col-sm-2 col-form-label">Gurdian's office address </label>
+		<div class="col-sm-10">
+		 <input type="text" th:field = "*{gurdian_office_address}" 	 class="form-control" id="inputPassword">
+		</div>
+		</div>
+		
+ <button type="submit" class="btn btn-info col-2"> Save Student</button>
+ </form>
+ </div>
+ <div th:insert="footer ::foot"></div>
+</body>
+</html>

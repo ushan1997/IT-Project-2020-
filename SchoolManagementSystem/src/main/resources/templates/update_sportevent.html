@@ -1,0 +1,39 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Event Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Event Management System</h1>
+		<hr>
+		<h2>Update Sport Event</h2>
+
+		<form action="#" th:action="@{/saveSportEvent}" th:object="${sportevent}" method="POST">
+		
+		<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+		
+			<p><strong>Event Name</strong> </p><input type="text" th:field="*{ename}" class="form-control mb-4 col-4">
+				
+			<p><strong>Event Date</strong> <input type="text" th:field="*{date}" class="form-control mb-4 col-4">
+				
+			<p><strong>Student Age</strong> <input type="text" th:field="*{age}" class="form-control mb-4 col-4">
+			
+			<p><strong>No. of Participant Limit</strong> <input type="text" th:field="*{limits}" class="form-control mb-4 col-4">
+				
+			<button type="submit" class="btn btn-info col-2"> Update Sport Events </button>
+		</form>
+		
+		<hr>
+		
+		<a th:href = "@{/sportevent}"> Back to winner List</a>
+	</div>
+	<div th:insert="footer ::foot"></div>
+</body>
+</html>	

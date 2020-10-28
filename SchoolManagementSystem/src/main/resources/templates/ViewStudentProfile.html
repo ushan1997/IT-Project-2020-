@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Student Profile</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+<div th:replace="header::myheader"></div>
+</head>
+<body>
+
+<main role="main" class="flex-shrink-8">
+<div class="container mt-5">
+<div class="jumbotron">
+
+<h1>Search Student Name to Get personal Details</h1>
+<form th:action="@{/ViewStudent}" method="get">
+<tr>Enter student name to search <tr>
+<input id="textSearch" type="text" name="keyword">
+<button type="submit">Go</button><br><br>
+
+</form>
+</div>
+</div>
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+           crossorigin="anonymous"  > 
+</script>
+	<script 
+	  src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.bundle.min.js" >
+	</script>
+
+ <list action="#" th:action="@{/showNewStudentForm}" th:object="${student}" method="get"></list>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm">
+     <a th:href="@{/AdminDashboard}" class="btn btn-secondary" style="width:200px;height:70px;">Payment Details</a>
+    </div>
+    <div class="col-sm">
+      <a th:href="@{/Home}" class="btn btn-dark"  style="width:200px;height:70px;">Exam and Evaluation marks</a>
+    </div>
+       <div class="col-sm">
+      <a th:href="@{/Home}" class="btn btn-info"  style="width:200px;height:70px;">Extra curricular Activities</a>
+    </div>
+    
+  </div>
+</div>
+	<div th:insert="footer ::foot"></div>
+</body>
+</html>

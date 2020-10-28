@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Teacher Management System</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+	<div th:replace="header::myheader"></div>
+</head>
+<body>
+
+	<div class="container my-2">
+	<h1>Employees List</h1>
+	
+		<form th:action="@{/viewTeachers}" method="get" class="form-inline">
+		<div class="form-group col-md-6">
+			<!--  -->
+			<input type="text" class="form-control" id="inputCity"
+				name="keyword" placeholder="Search">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	</form>
+	<hr>
+	<a th:href = "@{/showNewTeacherForm}" class="btn btn-primary btn-sm mb-3"> Add Teacher </a>
+	
+		<table border="1" class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=teacher_id&sortDir=' + ${reverseSortDir}}">
+							 Teacher id</a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=teacher_name&sortDir=' + ${reverseSortDir}}">
+							 Teacher_name</a>
+					</th>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=address&sortDir=' + ${reverseSortDir}}">
+							 Address</a>
+					</th>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=dob&sortDir=' + ${reverseSortDir}}">
+							 DOB</a>
+					</th>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=contact_no&sortDir=' + ${reverseSortDir}}">
+							 Contact No</a>
+					</th>
+					<th>
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+							 Email</a>
+					</th>
+					<th>
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=password&sortDir=' + ${reverseSortDir}}">
+							Password</a>
+					</th>
+					<th> Update </th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="teacher : ${listTeacher}">
+					<td th:text="${teacher.teacher_id}"></td>
+					<td th:text="${teacher.teacher_name}"></td>
+					<td th:text="${teacher.address}"></td>
+					<td th:text="${teacher.dob}"></td>
+					<td th:text="${teacher.contact_no}"></td>
+					<td th:text="${teacher.email}"></td>
+					<td th:text="${teacher.password}"></td>
+					<td> <a th:href="@{/updateTeacher/{id}(id=${teacher.teacher_id})}" class="btn btn-primary">Update</a></td>
+					 <td>   <a th:href="@{/deleteTeacher/{id}(id=${teacher.teacher_id})}" class="btn btn-danger">Delete</a></td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		<div th:if = "${totalPages > 1}">
+			<div class = "row col-sm-10">
+				<div class = "col-sm-2">
+					Total Rows: [[${totalItems}]] 
+				</div>
+				<div class = "col-sm-1">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+					</span>
+				</div>
+				<div class = "col-sm-1">
+					<a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+					<span th:unless="${currentPage < totalPages}">Next</span>
+				</div>
+				
+				 <div class="col-sm-1">
+    				<a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+					<span th:unless="${currentPage < totalPages}">Last</span>
+   				 </div>
+			</div>
+		</div>
+	</div>
+	<div th:insert="footer ::foot"></div>
+</body>
+</html>
